@@ -4,7 +4,7 @@ YOU HAVE BEEN WARNED
 
 | Language    | Supported? | Link                                               |
 |-------------|------------|----------------------------------------------------|
-| MicroPython | WIP        | https://github.com/bbcmicrobit/micropython         |
+| MicroPython | Yes        | https://github.com/bbcmicrobit/micropython         |
 | Espruino    | Yes        | https://github.com/espruino/Espruino               |
 | RIOT        | WIP        | https://github.com/RIOT-OS/RIOT/                   |
 | RUST        | WIP        | https://github.com/SimonSapin/rust-on-bbc-microbit |
