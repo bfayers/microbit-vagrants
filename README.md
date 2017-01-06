@@ -4,7 +4,7 @@
 |-------------|------------|----------------------------------------------------|
 | MicroPython | Yes        | https://github.com/bbcmicrobit/micropython         |
 | Espruino    | Yes        | https://github.com/espruino/Espruino               |
-| RIOT        | WIP        | https://github.com/RIOT-OS/RIOT/                   |
+| RIOT        | Yes        | https://github.com/RIOT-OS/RIOT/                   |
 | RUST        | WIP        | https://github.com/SimonSapin/rust-on-bbc-microbit |
 
 #Guide (WIP)
