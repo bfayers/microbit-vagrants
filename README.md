@@ -14,7 +14,7 @@ Sure, you could download the files for the Operating System and install all the 
 
 If you would like to get the latest version of MicroPython, Espruino or RIOT  on your micro:bit follow the guide below
 
-#Windows Guide (WIP) (LESS CONFUSING)
+#Windows Guide (WIP)
 1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Vagrant](https://www.vagrantup.com/downloads.html)
 3. Install [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Get the latest installed .msi, currently called "putty-0.67-installer.msi")
