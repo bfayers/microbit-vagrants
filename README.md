@@ -7,6 +7,13 @@
 | RIOT        | Yes        | https://github.com/RIOT-OS/RIOT/                   |
 | RUST        | WIP        | https://github.com/SimonSapin/rust-on-bbc-microbit |
 
+#What is Vagrant? Why should I use it?
+[Vagrant](https://www.vagrantup.com) is a a program which manages [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine) powered by [virtualbox](https://www.virtualbox.org)
+
+Sure, you could download the files for the Operating System and install all the differnt packages yourself, or you could use these handy Vagrantfiles to setup the machines for you in a minimal amount of time.
+
+
+
 #Guide (WIP)
 1. Install [virtualbox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Vagrant](https://www.vagrantup.com/downloads.html)
