@@ -1,8 +1,6 @@
 # microbit-vagrants
-IF WIP OR NO IS LISTED BELOW BUT THERE IS A VAGRANT FILE AVALIALBE DO NOT USE IT, UNLESS YOU ARE WILLING TO DEAL WITH IT NOT WORKING.
-YOU HAVE BEEN WARNED
 
-| Language    | Supported? | Link                                               |
+| Language    | Working?   | Link                                               |
 |-------------|------------|----------------------------------------------------|
 | MicroPython | Yes        | https://github.com/bbcmicrobit/micropython         |
 | Espruino    | Yes        | https://github.com/espruino/Espruino               |
