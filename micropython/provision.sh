@@ -9,6 +9,7 @@ sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
 sudo add-apt-repository -y ppa:pmiller-opensource/ppa
 sudo apt-get update
 sudo apt-get -y install cmake ninja-build gcc-arm-none-eabi srecord libssl-dev python3-pip libffi-dev libssl-dev python-dev libnewlib-arm-none-eabi libnewlib-dev libstdc++-arm-none-eabi-newlib
+sudo pip3 install --upgrade pip
 sudo pip3 install markupsafe
 sudo pip3 install yotta
 
