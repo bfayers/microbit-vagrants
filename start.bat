@@ -20,15 +20,27 @@ IF %C%==5 EXIT
 @ECHO ON
 cd Espruino
 vagrant up
+@ECHO OFF
+SET /P Z=
+EXIT
 :MICROPYTHON
 @ECHO ON
 cd micropython
 vagrant up
+@ECHO OFF
+SET /P Z=
+EXIT
 :RIOT
 @ECHO ON
 cd RIOT
 vagrant up
+@ECHO OFF
+SET /P Z=
+EXIT
 :PXT
 @ECHO ON
 cd PXT
 vagrant up
+@ECHO OFF
+SET /P Z=
+EXIT
