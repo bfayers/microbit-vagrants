@@ -1,3 +1,5 @@
+@ECHO ON
+vagrant plugin install vagrant-auto_network
 @ECHO OFF
 ECHO -----------------------------------------
 ECHO Welcome to the microbit-vagrants control.
