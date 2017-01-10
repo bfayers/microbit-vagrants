@@ -20,3 +20,7 @@ cd /home/vagrant/PythonEditor && git submodule update --init --recursive
 cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/down.sh
 cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/up.sh
 cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/index.html
+cd /home/vagrant/PythonEditor && chmod +x up.sh
+cd /home/vagrant/PythonEditor && chmod +x down.sh
+sudo wget -O /etc/rc.local https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/rc.local
+
