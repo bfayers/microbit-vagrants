@@ -10,4 +10,4 @@ sudo apt-get -y install pcregrep libpcre3 python3 git gcc-arm-none-eabi gcc-msp4
 # from stackoverflow i.e http://stackoverflow.com/a/28279205
 echo "export PATH="$PATH:/usr/local/gcc-arm-embedded/bin/"" >> /home/vagrant/.bashrc
 
-cd /riot && git clone https://github.com/RIOT-OS/RIOT .
+cd /riot && rm -r * && git clone https://github.com/RIOT-OS/RIOT .
