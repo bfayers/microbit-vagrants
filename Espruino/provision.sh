@@ -15,4 +15,4 @@ sudo apt-get install gcc-arm-embedded
 # from stackoverflow i.e http://stackoverflow.com/a/28279205
 echo "export PATH="$PATH:/usr/local/gcc-arm-embedded/bin/"" >> /home/vagrant/.bashrc
 
-cd /espruino && git clone https://github.com/espruino/Espruino .
+cd /espruino && rm -r * && git clone https://github.com/espruino/Espruino .
