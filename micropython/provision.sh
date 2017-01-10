@@ -15,3 +15,8 @@ sudo pip3 install yotta
 
 
 cd /micropython && git clone https://github.com/bbcmicrobit/micropython .
+cd /home/vagrant && git clone https://github.com/bbcmicrobit/PythonEditor
+cd /home/vagrant/PythonEditor && git submodule update --init --recursive
+cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/down.sh
+cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/up.sh
+cd /home/vagrant/PythonEditor && wget https://github.com/bfayers/microbit-vagrants/releases/download/extra-shell-scripts/index.html
