@@ -6,7 +6,7 @@
 | Espruino    | Yes        | https://github.com/espruino/Espruino               |
 | RIOT        | Yes        | https://github.com/RIOT-OS/RIOT/                   |
 | RUST        | WIP        | https://github.com/SimonSapin/rust-on-bbc-microbit |
-
+| PXT         | WIP        | https://github.com/microsoft/pxt https://github.com/microsoft/pxt-microbit |
 #What is Vagrant? Why should I use it?
 [Vagrant](https://www.vagrantup.com) is a a program which manages [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine) powered by [virtualbox](https://www.virtualbox.org)
 
