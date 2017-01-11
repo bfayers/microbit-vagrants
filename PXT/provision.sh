@@ -18,9 +18,9 @@ cd /home/vagrant/pxt
 
 sudo npm install -g jake
 sudo npm install -g typings
-npm install
-typings install
-jake
+sudo npm install
+sudo typings install
+sudo jake
 sudo npm install -g pxt
 
 cd pxt-microbit
