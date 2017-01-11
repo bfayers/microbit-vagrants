@@ -2,7 +2,7 @@
 #
 # This script is run by Vagrant when a new machine is provisioned.
 #
- 
+sudo apt-get update
 sudo apt-get -y install git
 
 sudo apt-get -y install python-software-properties
