@@ -12,7 +12,8 @@ sudo apt-get -y install nodejs
 sudo apt-get -y install firefox
 sudo apt-get -y install libgl1-mesa-glx
 
-cd /home/vagrant/pxt && rm -r * && rm -r .* && git clone https://github.com/microsoft/pxt .
+cd /home/vagrant/pxt && rm -r * && rm -r .* 
+cd /home/vagrant/pxt && git clone https://github.com/microsoft/pxt .
 git clone https://github.com/microsoft/pxt-microbit
 cd /home/vagrant/pxt
 
