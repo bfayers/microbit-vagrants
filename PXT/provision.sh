@@ -9,10 +9,12 @@ sudo apt-get -y install python-software-properties
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get update
 sudo apt-get -y install nodejs
+sudo apt-get -y install firefox
+sudo apt-get -y install libgl1-mesa-glx
 
-cd /pxt && rm -r * && rm -r .* && git clone https://github.com/microsoft/pxt .
+cd ~/pxt && rm -r * && rm -r .* && git clone https://github.com/microsoft/pxt .
 git clone https://github.com/microsoft/pxt-microbit
-cd /pxt
+cd ~/pxt
 
 sudo npm install -g jake
 sudo npm install -g typings

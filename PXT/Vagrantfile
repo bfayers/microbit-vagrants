@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
   ## FOLDER ##
 
   config.vm.synced_folder ".", "/vagrant"
-  config.vm.synced_folder "./pxt-microbit", "/home/vagrant/pxt"
+  config.vm.synced_folder "./pxt", "/home/vagrant/pxt"
 
   ## NETWORK ##
 
