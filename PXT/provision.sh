@@ -55,7 +55,7 @@ function install-pxt(){
 echo start
 #get-info 
 #add-local
-#basic-apt-get&
+#basic-apt-get& # let this run in background so finished quicker (hopefully)
 #local-node-install
 
 cat >/dev/null 2>&1 <<EOF
