@@ -4,8 +4,6 @@
 # -rwxrwxr-x 1 vagrant vagrant 1811 Jan 12 18:23 /tmp/vagrant-shell
 # can be checked as vagrant user with sudo su - 
 
-LOG=/tmp/vagrant.log
-
 function get-info(){
   whoami
   set
@@ -17,11 +15,9 @@ function add-local(){
 }
 
 function basic-apt-get(){
-  echo "basic-apt-get stop $(date)"
   apt-get update
 # apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
   apt-get -y install git build-essential
-  echo "basic-apt-get stop $(date)"
 }
 
 function local-node-install(){
