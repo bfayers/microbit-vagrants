@@ -37,7 +37,7 @@ function local-node-install(){
 function install-pxt(){
   echo "install-pxt start $(date)"
   runuser - vagrant -c '
-    . ~vagrant/.bashrc;
+    source ~vagrant/.bashrc;
     npm install -g jake typings;
     npm install -g typings;
     mkdir -p ~vagrant/pxt/pxt; 
