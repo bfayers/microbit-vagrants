@@ -17,13 +17,10 @@ echo initial-apt-get
 }>/tmp/initial-apt-get-log #2>&1
 
 echo home-local-node-install #https://gist.github.com/isaacs/579814
-sudo -u vagrant  echo 'export PATH=$HOME/local/bin:$PATH' >> ~vagrant/.bashrc
-sudo -u vagrant  . ~vagrant/.bashrc
-sudo -u vagrant  mkdir ~vagrant/local
+runuser - vagrant  -c echo 'export PATH=$HOME/local/bin:$PATH' >> ~vagrant/.bashrc
+runuser - vagrant  mkdir ~vagrant/local
 cd ~vagrant/local
-sudo -u vagrant curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1 
-sudo -u vagrant node --version
-sudo -u vagrant npm --version
+runuser - vagrant curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1 
 
 cat <<EOF
 # The following is under investigation
