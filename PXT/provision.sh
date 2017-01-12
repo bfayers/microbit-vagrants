@@ -17,7 +17,7 @@ function add-local(){
 function basic-apt-get(){
   apt-get update
 # apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
-  apt-get -y install git build-essential
+  apt-get -y install git build-essential xauth
 }
 
 function local-node-install(){
