@@ -25,6 +25,7 @@ echo initial-apt-get
 # sudo apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
 } >>/tmp/vagrant-debug-info-log 2>&1
 
+
 echo home-local-node-install #https://gist.github.com/isaacs/579814
 {
   runuser - vagrant -c '
@@ -35,6 +36,7 @@ echo home-local-node-install #https://gist.github.com/isaacs/579814
     '
 } >>/tmp/vagrant-debug-info-log 2>&1
 
+cat <<EOF
 echo pxt
 {
   runuser - vagrant -c '
@@ -48,16 +50,15 @@ echo pxt
     typings install; 
     jake; 
     npm install -g pxt;
-    cd ~vagrant/pxt/pxt-microbit; 
+    cd ~vagrant/pxt/pxt-microbit;
     npm install ../pxt; 
     npm install; 
-    nohup pxt serve&;
     '
 } >>/tmp/vagrant-debug-info-log 2>&1
 
 echo 'ssh vagrant@127.0.0.1:2222'
 
-cat <<EOF
+#cat <<EOF
 
 echo x-apt-get
 {
