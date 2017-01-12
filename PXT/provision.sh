@@ -24,11 +24,37 @@ echo home-local-node-install #https://gist.github.com/isaacs/579814
   runuser - vagrant -c 'curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1'
 }
 
+echo pxt
+{
+  runuser - vagrant -c 'mkdir -p ~vagrant/pxt/pxt'
+  runuser - vagrant -c 'mkdir -p ~vagrant/pxt/pxt-microbit'  
+  runuser - vagrant -c 'git clone https://github.com/microsoft/pxt ~vagrant/pxt/pxt'
+  runuser - vagrant -c 'git clone https://github.com/microsoft/pxt-microbit ~vagrant/pxt/pxt-microbit'
+}
+
+cat <<EOF
+
+sudo npm install -g jake
+sudo npm install -g typings
+sudo npm install
+sudo typings install
+sudo jake
+sudo npm install -g pxt
+sudo pxt target microbit
+
+cd pxt-microbit
+sudo npm install -g pxt
+sudo npm install
+pxt serve
+  
+}
+
+
+
 echo x-apt-get
 {
   apt-get -y install xauth xterm firefox
 }>/tmp/x-apt-get-log
-cat <<EOF
 
 # The following is under investigation
 sudo apt-get --qq -y install python-software-properties
