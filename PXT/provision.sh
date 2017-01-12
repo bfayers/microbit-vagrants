@@ -31,6 +31,7 @@ echo pxt
   # Note: there was rm's cause git will not clone into a non empty directory so we need a ~vagrant/pxt/pxt structure as ~vagrant/pxt is used So I # it as "not needed"
   runuser - vagrant -c 'git clone https://github.com/microsoft/pxt ~vagrant/pxt;git clone https://github.com/microsoft/pxt-microbit ~vagrant/pxt/pxt-microbit' # Note: Peli needs to say ok
   runuser - vagrant -c 'cd ~vagrant/pxt/pxt;npm install; typings install; jake; npm install -g pxt'
+  runuser - vagrant -c 'cd ~vagrant/pxt/pxt-microbit; npm install ../pxt; npm install; pxt serve' # Note: Peli needs to say ok
 }
 
 cat <<EOF
