@@ -30,7 +30,7 @@ function local-node-install(){
     cd ~vagrant/local 
     runuser - vagrant -c '
       cd ~vagrant/local;
-      curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1;
+      curl -s https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1;
     '
 }
 
@@ -38,11 +38,12 @@ function install-pxt(){
   echo "install-pxt start $(date)"
   runuser - vagrant -c '
     . ~vagrant/.bashrc;
+    echo $PATH;
     export PATH=~vagrant/local/bin:$PATH; #FIXME
     npm install -g jake typings;
     npm install -g typings;
     mkdir -p ~vagrant/pxt/pxt; 
-    ~vagrant/pxt/pxt-microbit;
+    mkdir -p ~vagrant/pxt/pxt-microbit;
     git clone https://github.com/microsoft/pxt ~vagrant/pxt/pxt;
     git clone https://github.com/microsoft/pxt-microbit ~vagrant/pxt/pxt-microbit;
     cd ~vagrant/pxt/pxt;
