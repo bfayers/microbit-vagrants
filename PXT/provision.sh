@@ -18,7 +18,7 @@ echo initial-apt-get
 
 echo home-local-node-install #https://gist.github.com/isaacs/579814
 {
-  runuser - vagrant -c 'echo export PATH=$HOME/local/bin:$PATH' >> ~vagrant/.bashrc
+  runuser - vagrant -c 'echo export PATH=~vagrant/local/bin:$PATH >>~vagrant/.bashrc' 
   runuser - vagrant -c 'mkdir ~vagrant/local; cd ~vagrant/local; curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1'
 }
 
