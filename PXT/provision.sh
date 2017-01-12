@@ -1,45 +1,66 @@
-#!/bin/bash
-#
-# This script is run by Vagrant when a new machine is provisioned.
-#
-echo debug-info-log
-{
-  whoami
-  who am i
-  set
-} >/tmp/debug-info-log
+require 'vagrant-auto_network'
 
-echo initial-apt-get 
-{
-  sudo apt-get update
-  apt-get -y install git build-essential  
-# sudo apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
-}>/tmp/initial-apt-get-log #2>&1
+Vagrant.configure(2) do |config|
 
-echo home-local-node-install #https://gist.github.com/isaacs/579814
-{
-  runuser - vagrant -c 'echo export PATH=~vagrant/local/bin:$PATH >>~vagrant/.bashrc' 
-  runuser - vagrant -c 'mkdir ~vagrant/local; cd ~vagrant/local; curl https://nodejs.org/download/release/latest-v6.x/node-v6.9.4-linux-x64.tar.gz | tar xz --strip-components=1'
-}
+  # Ubuntu Server
+  config.vm.define "microbit-vagrants-pxt", primary: true do |headless|
+    headless.vm.box = "boxcutter/ubuntu1604"
+  config.vm.network "forwarded_port", guest: 3232, host: 3232
+  end
 
-echo pxt
-{
-  runuser - vagrant -c 'npm install -g jake typings'
-  runuser - vagrant -c 'mkdir -p ~vagrant/pxt ~vagrant/pxt/pxt-microbit'
-  # Note: there was rm's cause git will not clone into a non empty directory so we need a ~vagrant/pxt/pxt structure as ~vagrant/pxt is used So I # it as "not needed"
-  runuser - vagrant -c 'git clone https://github.com/microsoft/pxt ~vagrant/pxt; git clone https://github.com/microsoft/pxt-microbit ~vagrant/pxt/pxt-microbit' # Note: Peli needs to say ok
-  runuser - vagrant -c 'cd ~vagrant/pxt/pxt;npm install; typings install; jake; npm install -g pxt'
-  runuser - vagrant -c 'cd ~vagrant/pxt/pxt-microbit; npm install ../pxt; npm install; pxt serve' # Note: Peli needs to say ok
-}
+  ## FOLDER ##
 
-cat <<EOF
+  config.vm.synced_folder ".", "/vagrant"
+  # config.vm.synced_folder "./pxt", "/home/vagrant/pxt"
 
-echo x-apt-get
-{
-  apt-get -y install xauth xterm firefox
-}>/tmp/x-apt-get-log
+  ## NETWORK ##
 
-# What is this for ...
-sudo apt-get --qq -y install python-software-properties
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-EOF
+  # your host OS type
+  host = RbConfig::CONFIG['host_os']
+
+  ## VIRTUALBOX ##
+
+  config.vm.provider "virtualbox" do |v|
+    # Give some pessimistic default values, fix errors on Windows
+	mem = 512
+	cpus = 2
+    # Give VM 1/4 system memory & access to all cpu cores on the host
+    if host =~ /darwin/
+      cpus = `sysctl -n hw.ncpu`.to_i
+      # sysctl returns Bytes and we need to convert to MB
+      mem = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 4
+    elsif host =~ /linux/
+      cpus = `nproc`.to_i
+      # meminfo shows KB and we need to convert to MB
+      mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
+    end
+
+    v.memory = mem
+    v.cpus = cpus
+  end
+
+  ## HOST-SPECIFIC ##
+
+  if host =~ /darwin/
+    # macs require NFS for sharing because of performance issues.
+    # NFS comes preinstalled on Macs, so no extra steps are necessary here.
+    config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+    # NFS requires a private network.  by default, a private network requires a static IP,
+    # but this is a pain to manage if you have many machines up.  the auto_network plugin
+    # will automatically assign a static IP to your box.  to install this plugin, execute
+    # `./scripts/vagrant/setup-host.sh` or `vagrant plugin install vagrant-auto_network`
+    config.vm.network :private_network, :auto_network => true
+  end
+
+  ## PROVISIONING ##
+
+  config.vm.provision "shell", path: "./provision.sh"
+
+  ## SSH ##
+
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+
+end
+
