@@ -50,7 +50,6 @@ function install-pxt(){
     cd ~vagrant/pxt/pxt-microbit;
     npm install ../pxt; 
     npm install;
-    pxt serve;
   '
   echo "install-pxt stop $(date)"
 }
