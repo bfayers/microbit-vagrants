@@ -37,7 +37,8 @@ function local-node-install(){
 function install-pxt(){
   echo "install-pxt start $(date)"
   runuser - vagrant -c '
-    source ~vagrant/.bashrc;
+    . ~vagrant/.bashrc;
+    export PATH=~vagrant/local/bin:$PATH; #FIXME
     npm install -g jake typings;
     npm install -g typings;
     mkdir -p ~vagrant/pxt/pxt; 
@@ -61,5 +62,6 @@ function install-pxt(){
 #get-info 
 #add-local
 #basic-apt-get& # let this run in background so finished quicker (hopefully) maybe record pid
-#local-node-install& # let this run in background: check status when logged in maybe record pid
+#local-node-install
+#install-pxt
 #echo "provison stop $(date)"
