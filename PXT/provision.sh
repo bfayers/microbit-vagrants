@@ -5,7 +5,7 @@
 echo initial-apt-get 
 {
   sudo apt-get update
-  sudo apt-get -y install xauth xterm git
+  sudo apt-get -y install xauth xterm git build-essential  
 # sudo apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
 }>/tmp/initial-apt-get-log
 
