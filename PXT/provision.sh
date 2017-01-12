@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script is run by Vagrant when a new machine is provisioned.
-#
+# -rwxrwxr-x 1 vagrant vagrant 1811 Jan 12 18:23 /tmp/vagrant-shell
 # can be checked as vagrant user with sudo su - provison.sh
 
 LOG=/tmp/vagrant.log
@@ -57,10 +57,9 @@ function install-pxt(){
   echo "install-pxt stop $(date)"
 }
 
-echo "provison start $(date)"
-get-info 
-add-local
-nohup basic-apt-get& # let this run in background so finished quicker (hopefully) maybe record pid
-nohup local-node-install& # let this run in background: check status when logged in maybe record pid
-ps aux
-echo "provison stop $(date)"
+#echo "provison start $(date)"
+#get-info 
+#add-local
+#basic-apt-get& # let this run in background so finished quicker (hopefully) maybe record pid
+#local-node-install& # let this run in background: check status when logged in maybe record pid
+#echo "provison stop $(date)"
