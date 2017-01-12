@@ -3,6 +3,7 @@
 # This script is run by Vagrant when a new machine is provisioned.
 # -rwxrwxr-x 1 vagrant vagrant 1811 Jan 12 18:23 /tmp/vagrant-shell
 # can be checked as vagrant user with sudo su - 
+#
 
 function get-info(){
   whoami
@@ -17,7 +18,7 @@ function add-local(){
 function basic-apt-get(){
   apt-get update
 # apt-get -y dist-upgrade #TODO:Solve grub problem http://askubuntu.com/questions/325872/ubuntu-unattended-apt-get-upgrade-grub-install-dialog
-  apt-get -y install git build-essential xauth
+  apt-get -y install git build-essential xauth libgl1-mesa-glx firefox
 }
 
 function local-node-install(){
