@@ -43,7 +43,9 @@ function install-pxt(){
     mkdir -p ~vagrant/pxt/pxt-microbit;
     git clone https://github.com/microsoft/pxt ~vagrant/pxt/pxt;
     git clone https://github.com/microsoft/pxt-microbit ~vagrant/pxt/pxt-microbit;
-    cd ~vagrant/pxt/pxt;
+    cd ~vagrant/pxt/pxt/cli;
+	sed -i -- 's/127.0.0.1/0.0.0.0/g' server.ts; #Workaround to bind to 0.0.0.0 instead of 127.0.0.1 so can be accessed via host browser.
+	cd ~vagrant/pxt/pxt;
     npm install; 
     typings install; 
     jake; 
