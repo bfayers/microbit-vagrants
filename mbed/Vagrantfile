@@ -74,8 +74,28 @@ Vagrant.configure("2") do |config|
       && pip install -U mbed-cli \
       && rm -fr mbed-os-example-blinky \
       && mbed import mbed-os-example-blinky \
-      && cd mbed-os-example-blinky \
-      && mbed compile -t GCC_ARM -m NRF51_MICROBIT \
+      && cd mbed-os-example-blinky
+      
+      cat >main.cc <<MAINCC
+#include "mbed.h"
+
+#if defined(TARGET_NRF51_MICROBIT)
+  DigitalOut col0(P0_4, 0);
+  DigitalOut myled(P0_13);
+#else if defined(TARGET_NRF52_DK)
+  DigitalOut myled(P0_17);
+#endif
+
+int main() {
+    while(1) {
+        myled = 1;
+        wait(0.2);
+        myled = 0;
+        wait(0.2);
+    }
+}
+MAINCC
+      mbed compile -t GCC_ARM -m NRF51_MICROBIT \
       && mbed compile -t GCC_ARM -m NRF52_DK \
       && chown -R ubuntu ~ubuntu/mbed-os-example-blinky
   SHELL
