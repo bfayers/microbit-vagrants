@@ -68,7 +68,8 @@ Vagrant.configure("2") do |config|
       apt-get -y update \
       && apt-get -y upgrade \
       && apt-get -y install \
-        cmake gcc-arm-none-eabi python-pip
+        cmake gcc-arm-none-eabi python-pip \
+	hg
       
       pip install --upgrade pip \
       && pip install -U mbed-cli \
